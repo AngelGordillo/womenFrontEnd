@@ -1,0 +1,62 @@
+<!doctype html> 
+<!--[if lt IE 10]> <html class="lt-ie10 no-js"  lang=""> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <link rel="shortcut icon" href="assets/graphics/meta/favicon.ico" type="image/x-icon" />
+  <title>Project Starter</title>
+
+  <!-- build:css assets/styles/vendor.css -->
+  <!-- endbuild -->
+
+  <!-- build:css assets/styles/main.css -->
+  <link rel="stylesheet" href="assets/styles/main.css">
+  <!-- endbuild -->
+  <link rel="author" type="text/plain" href="humans.txt" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+</head>
+<body ng-app="myApp"  ng-controller="womenController">
+  <div ng-repeat="woman in datas.data">
+    <ul>
+      <li>{{woman.name}}</li>
+      <li>{{woman.email}}</li>
+      <li>{{woman.picture_url}}</li>
+      <li>{{woman.topic}}</li>
+      <li>{{woman.linkedin}}</li>
+
+    </ul>
+  </div>
+
+     <form class="form">
+      <fieldset class="form__fieldset">
+              <div class="form__group">
+          <label class="form__label" for="form-name">Input text</label>
+          <input type="text" ng-model="name" class="form__control form__control--medium" id="form-name" name="form-name" placeholder="This is a placeholder" />
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-topic">Input topic</label>
+          <input type="topic" ng-model="topic" class="form__control form__control--medium" id="form-topic" name="form-topic" placeholder="This is a placeholder" />
+
+        </div>
+                <div class="form__group">
+          <label class="form__label" for="form-pictureUrl">Input picture_url</label>
+          <input type="pictureUrl" ng-model="pictureUrl" class="form__control form__control--medium" id="form-pictureUrl" name="form-pictureUrl" placeholder="This is a placeholder" />
+
+        </div>
+        <button type="submit" ng-click="sendData()">Submit</button>
+        </fieldset>
+        </form>
+
+  <!-- build:js assets/scripts/vendor.js -->
+  <script src="assets/scripts/vendor.js"></script>
+  <!-- endbuild -->
+  <!-- build:js assets/scripts/bundle.js -->
+  <script src="assets/scripts/bundle.js"></script>
+  <!-- endbuild -->
+</body>
+</html>
