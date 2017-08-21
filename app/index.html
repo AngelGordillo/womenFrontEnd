@@ -20,37 +20,19 @@
 
 </head>
 <body ng-app="myApp"  ng-controller="womenController">
-  <div ng-repeat="woman in datas.data">
-    <ul>
-      <li>{{woman.name}}</li>
-      <li>{{woman.email}}</li>
-      <li>{{woman.picture_url}}</li>
-      <li>{{woman.topic}}</li>
-      <li>{{woman.linkedin}}</li>
+  <form class="form" style="width: 50%;padding: 1%">
+    <fieldset class="form__fieldset">
+      <div class="form__group">
+        <label class="form__label" for="form-username">Input username</label>
+        <input type="text" ng-model="username" class="form__control form__control--medium" id="form-username" name="form-username" placeholder="This is a placeholder" />
+      </div>
 
-    </ul>
-  </div>
-
-     <form class="form">
-      <fieldset class="form__fieldset">
-              <div class="form__group">
-          <label class="form__label" for="form-name">Input text</label>
-          <input type="text" ng-model="name" class="form__control form__control--medium" id="form-name" name="form-name" placeholder="This is a placeholder" />
-        </div>
-
-        <div class="form__group">
-          <label class="form__label" for="form-topic">Input topic</label>
-          <input type="topic" ng-model="topic" class="form__control form__control--medium" id="form-topic" name="form-topic" placeholder="This is a placeholder" />
-
-        </div>
-                <div class="form__group">
-          <label class="form__label" for="form-pictureUrl">Input picture_url</label>
-          <input type="pictureUrl" ng-model="pictureUrl" class="form__control form__control--medium" id="form-pictureUrl" name="form-pictureUrl" placeholder="This is a placeholder" />
-
-        </div>
-        <button type="submit" ng-click="sendData()">Submit</button>
-        </fieldset>
-        </form>
+      <div class="form__group">
+        <label class="form__label" for="form-password">Input password</label>
+        <input type="password" ng-model="password" class="form__control form__control--medium" id="form-password" name="form-password" placeholder="This is a placeholder" />
+      <button type="submit" ng-click="sendDataUser()">Submit</button>
+    </fieldset>
+  </form>
 
   <!-- build:js assets/scripts/vendor.js -->
   <script src="assets/scripts/vendor.js"></script>
