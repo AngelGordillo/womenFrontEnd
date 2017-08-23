@@ -12,7 +12,7 @@ var myApp = angular
   })
 .controller("womenController", ["$scope",'$filter',"$http",'$window' ,function($scope,$filter, $http, $window){
 
-		var urlGet = "http://localhost:8080/women";
+		var urlGet = "https://whispering-castle-40376.herokuapp.com/women";
 		var urlUser = "http://localhost:8080/users";
 		var home = "http://localhost:8080/womenValidate/";
 		var urlWomenActivate = ""
