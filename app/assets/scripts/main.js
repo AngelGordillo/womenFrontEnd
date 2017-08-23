@@ -14,7 +14,7 @@ var myApp = angular
 
 		var urlGet = "https://tranquil-lowlands-85919.herokuapp.com/women";
 		var urlUser = "http://localhost:8080/users";
-		var home = "http://localhost:8080/womenValidate/";
+		var home = "https://tranquil-lowlands-85919.herokuapp.com/womenValidate/";
 		var urlWomenActivate = ""
 
 		$http({
