@@ -41,20 +41,7 @@ var myApp = angular
 			});
 
 			}
-			$scope.sendDataUser = function () {
-			
-			var Indata = {'isPublic': true};
-			home += $scope.name;
-			console.log(home);
-			$http.put(home, Indata).then(function (data, status, headers, config) { 
-				console.log(Indata);
-			    alert("success"); 
-			    $window.location.href = home;
-			},function (data, status, headers, config) { 
-			    alert("error"); 
-			});
 
-			}
 		}
 
 
