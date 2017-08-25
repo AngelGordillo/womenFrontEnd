@@ -51,12 +51,22 @@
 
       </div>
      </fieldset>
-      <button type="button" ng-click="sendData()">Send</button> 
+
+      <button type="submit" ng-click="sendData()">Send</button> 
     </form>
  
 
 
  <div style="float: left; padding: 1%">
+             <label class="form__option form__option--inline form__option--custom-radio" >
+              <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="true" name="form-radio1" id="form-radio-1" value="true"  />  <span class="form__option__text">Activate</span>
+              <span class="form__option__ui"></span>
+            </label>
+            
+            <label class="form__option form__option--inline form__option--custom-radio">
+              <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="false"  ng-checked="true" name="form-radio1" id="form-radio-1" value="false" /> <span class="form__option__text">Unknown</span>
+              <span class="form__option__ui"></span>
+            </label>
     <ul ng-repeat="woman in datas.data">
       <li>Name: {{woman.name}}</li>
       <li>Email: {{woman.email}}</li>
