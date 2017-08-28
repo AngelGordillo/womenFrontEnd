@@ -33,7 +33,7 @@ var myApp = angular
 			var Indata = {'name': $scope.name, 'email': $scope.email,'picture_url': $scope.pictureUrl, 'topic': $scope.topic, 'linkedin': $scope.linkedin };
 			$http.post(urlGet, Indata).then(function (data, status, headers, config) { 
 				console.log(Indata);
-
+				 $window.location.reload();
 			    alert("success"); 
 			},function (data, status, headers, config) { 
 				console.log(Indata);
@@ -42,7 +42,7 @@ var myApp = angular
 
 			}
 			$scope.sendDataUser = function () {
-			
+			//https://tranquil-lowlands-85919.herokuapp.com/womenValidate/15f36fc7-b3cb-41d7-99fb-a448b1e40947?isPublic=true
 			var Indata = {'isPublic': true};
 			home += $scope.name;
 			console.log(home);
