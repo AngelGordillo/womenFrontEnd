@@ -11,27 +11,52 @@ var myApp = angular
 //       delete $httpProvider.defaults.headers.common['X-Requested-With'];
 //   })
 .controller("womenController", ["$scope",'$filter',"$http",'$window' ,function($scope,$filter, $http, $window){
-
-		var urlGet = "https://tranquil-lowlands-85919.herokuapp.com/women";
+		 $scope.datas = [];
+		var urlPost = "https://tranquil-lowlands-85919.herokuapp.com/women";
+		var urlGetFalse = "https://tranquil-lowlands-85919.herokuapp.com/women?public=false";
+		var urlGetTrue = "https://tranquil-lowlands-85919.herokuapp.com/women?public=true";
 		var urlUser = "http://localhost:8080/users";
-		var home = "https://tranquil-lowlands-85919.herokuapp.com/womenValidate/";
-		var urlWomenActivate = ""
-
-		$http({
+			$http({
 			method: 'GET',
-			url: urlGet,
+			url: urlGetFalse,
 			
 		}).then(function successCallback(response) {
 			$scope.datas = response.data;  
-			//console.log($scope.datas);
-		}, function errorCallback(response) {
+			}, function errorCallback(response) {
 			$scope.datas = [{name: "Error!! " + response.status}];
 		});
+
+$scope.changeURL = function(){
+	if ($scope.public === false) {
+
+			$http({
+				method: 'GET',
+				url: urlGetFalse,
+				
+			}).then(function successCallback(response) {
+				$scope.datas = response.data;  
+					}, function errorCallback(response) {
+				$scope.datas = [{name: "Error!! " + response.status}];
+			});
+	}else{
+		$http({
+				method: 'GET',
+				url: urlGetTrue,
+				
+			}).then(function successCallback(response) {
+				$scope.datas = response.data;  
+					}, function errorCallback(response) {
+				$scope.datas = [{name: "Error!! " + response.status}];
+			});
+	}
+}
+
+
 
 		$scope.sendData = function () {
 			
 			var Indata = {'name': $scope.name, 'email': $scope.email,'picture_url': $scope.pictureUrl, 'topic': $scope.topic, 'linkedin': $scope.linkedin };
-			$http.post(urlGet, Indata).then(function (data, status, headers, config) { 
+			$http.post(urlPost, Indata).then(function (data, status, headers, config) { 
 				console.log(Indata);
 				 $window.location.reload();
 			    alert("success"); 
@@ -41,21 +66,7 @@ var myApp = angular
 			});
 
 			}
-			$scope.sendDataUser = function () {
-			//https://tranquil-lowlands-85919.herokuapp.com/womenValidate/15f36fc7-b3cb-41d7-99fb-a448b1e40947?isPublic=true
-			var Indata = {'isPublic': true};
-			home += $scope.name;
-			console.log(home);
-			$http.put(home, Indata).then(function (data, status, headers, config) { 
-				console.log(Indata);
-			    alert("success"); 
-			    $window.location.href = home;
-			},function (data, status, headers, config) { 
-			    alert("error"); 
-			});
-
-			}
-		}
 
 
-]);
+
+];

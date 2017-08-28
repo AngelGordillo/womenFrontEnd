@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="shortcut icon" href="assets/graphics/meta/favicon.ico" type="image/x-icon" />
   <title>Project Starter</title>
-
+  
   <!-- build:css assets/styles/vendor.css -->
   <!-- endbuild -->
 
@@ -20,18 +20,10 @@
 
 </head>
 <body ng-app="myApp"  ng-controller="womenController">
-  <div style="float: left; padding: 1%">
-    <ul ng-repeat="woman in datas.data">
-      <li>Name: {{woman.name}}</li>
-      <li>Email: {{woman.email}}</li>
-      <li>Topic: {{woman.topic}}</li>
-      <li>Linkedin: <a href="{{woman.linkedin}}"></a></li>
-      <li><img src="{{woman.picture_url}}"></img></li>
 
-    </ul>
-  </div>
 
-  <form class="form" style="width: 50%; float: right;padding: 1%">
+  <form class="form" style="width: 50%; float: left;padding: 1%; border: 2px solid black; border-radius: 6px">
+  <h3>REGISTER A NEW WOMAN</h3>
     <fieldset class="form__fieldset">
       <div class="form__group">
         <label class="form__label" for="form-name">Input name</label>
@@ -58,10 +50,33 @@
         <input type="pictureUrl" ng-model="pictureUrl" class="form__control form__control--medium" id="form-pictureUrl" name="form-pictureUrl" placeholder="This is a placeholder" />
 
       </div>
-      <button type="submit" ng-click="sendData()">Submit</button>
-    </fieldset>
-  </form>
-<button type="button" ng-click="sendDataUser()">Send</button>
+     </fieldset>
+
+      <button type="submit" ng-click="sendData()">Send</button> 
+    </form>
+ 
+
+
+ <div style="float: left; padding: 1%">
+             <label class="form__option form__option--inline form__option--custom-radio" >
+              <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="true" name="form-radio1" id="form-radio-1" value="true"  />  <span class="form__option__text">Activate</span>
+              <span class="form__option__ui"></span>
+            </label>
+            
+            <label class="form__option form__option--inline form__option--custom-radio">
+              <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="false"  ng-checked="true" name="form-radio1" id="form-radio-1" value="false" /> <span class="form__option__text">Unknown</span>
+              <span class="form__option__ui"></span>
+            </label>
+    <ul ng-repeat="woman in datas.data">
+      <li>Name: {{woman.name}}</li>
+      <li>Email: {{woman.email}}</li>
+      <li>Topic: {{woman.topic}}</li>
+      <li>Linkedin: <a href="{{woman.linkedin}}"></a></li>
+      <li><img src="{{woman.picture_url}}"></img></li>
+
+    </ul>
+  </div>
+
   <!-- build:js assets/scripts/vendor.js -->
   <script src="assets/scripts/vendor.js"></script>
   <!-- endbuild -->
