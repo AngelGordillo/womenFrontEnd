@@ -3,30 +3,57 @@
    ========================================================================== */
 
 /* Libraries
-   ========================================================================== */
+========================================================================== */
 
 /**
  * Bourbon for extended SASS functionality:
  * http://bourbon.io/
  */
 
-@import "bourbon";
+ @import "bourbon";
 
 /**
  * Jeet, a grid system designed for humans:
  * http://jeet.gs/
  */
 
-@import "node_modules/jeet/jeet";
+ @import "node_modules/jeet/jeet";
 
 /**
  * ENTSO-E Design System
  */
 
-@import "ee-design-system";
+ @import "ee-design-system";
 
 
 /** Custom
-   */
+*/
 
 // @import "collecticons";
+
+.titleLogoBlue{display: inline-block; margin-top: 9px; color: #1c3968 !important;}
+.lineYellow{border-bottom: 2px solid #fcc40f;}
+@media only screen and (min-width: 768px){
+	.prose--responsive > * {
+		margin-bottom: 0rem;
+	}
+}
+.lineBlue{ border: 2px solid #1c3968;
+	border-radius: 6px;
+	overflow: hidden;
+	padding: 1%;
+	
+}
+.center{text-align: center;}
+.lineYellowT{border-bottom: 2px solid #fcc40f;}
+.limiter{width: 100%}
+#circle {
+	width: 100px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+svg{ width: 6%;}
+.button--warning-bounded{color:#ce202c;}

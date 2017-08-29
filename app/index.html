@@ -20,68 +20,108 @@
 
 </head>
 <body ng-app="myApp"  ng-controller="womenController">
-
-
-  <form class="form" style="width: 50%; float: left;padding: 1%; border: 2px solid black; border-radius: 6px">
-  <h3>REGISTER A NEW WOMAN</h3>
-    <fieldset class="form__fieldset">
-      <div class="form__group">
-        <label class="form__label" for="form-name">Input name</label>
-        <input type="text" ng-model="name" class="form__control form__control--medium" id="form-name" name="form-name" placeholder="This is a placeholder" />
+  <div id="main" class="center  fill-white dark clearfix lineYellow" style="position:relative;">
+    <div class="limiter prose--responsive">
+      <!-- Content goes inside #site-canvas -->
+      <div class=" page__headline">
+        <span class="center mast-logo mast-logo--h">
+          <a href="https://www.entsoe.eu/Pages/default.aspx"><img ng-href="template" id="logo" src="https://docs.entsoe.eu/ee-base/assets/graphics/layout/entose_logo-h-pos.svg" width="139" height="48" alt="ENTSO-E logo" class="mast-logo__image"> </a>
+          <a class="titleLogoBlue" href="https://www.entsoe.eu/major-projects/network-code-implementation/stakeholder-committees/Pages/default.aspx">ENTSO-E Women Speakers Data Base</a>
+          <!-- <small class="mast-logo__label">Docs</small> -->
+        </span>
       </div>
-
-      <div class="form__group">
-        <label class="form__label" for="form-email">Input email</label>
-        <input type="email" ng-model="email" class="form__control form__control--medium" id="form-email" name="form-email" placeholder="This is a placeholder" />
-
-      </div>
-      <div class="form__group">
-        <label class="form__label" for="form-topic">Input topic</label>
-        <input type="topic" ng-model="topic" class="form__control form__control--medium" id="form-topic" name="form-topic" placeholder="This is a placeholder" />
-
-      </div>
-      <div class="form__group">
-        <label class="form__label" for="form-linkedin">Input linkedin</label>
-        <input type="linkedin" ng-model="linkedin" class="form__control form__control--medium" id="form-linkedin" name="form-linkedin" placeholder="This is a placeholder" />
-
-      </div>
-      <div class="form__group">
-        <label class="form__label" for="form-pictureUrl">Input picture_url</label>
-        <input type="pictureUrl" ng-model="pictureUrl" class="form__control form__control--medium" id="form-pictureUrl" name="form-pictureUrl" placeholder="This is a placeholder" />
-
-      </div>
-     </fieldset>
-
-      <button type="submit" ng-click="sendData()">Send</button> 
-    </form>
- 
-
-
- <div style="float: left; padding: 1%">
-             <label class="form__option form__option--inline form__option--custom-radio" >
-              <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="true" name="form-radio1" id="form-radio-1" value="true"  />  <span class="form__option__text">Activate</span>
-              <span class="form__option__ui"></span>
-            </label>
-            
-            <label class="form__option form__option--inline form__option--custom-radio">
-              <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="false"  ng-checked="true" name="form-radio1" id="form-radio-1" value="false" /> <span class="form__option__text">Unknown</span>
-              <span class="form__option__ui"></span>
-            </label>
-    <ul ng-repeat="woman in datas.data">
-      <li>Name: {{woman.name}}</li>
-      <li>Email: {{woman.email}}</li>
-      <li>Topic: {{woman.topic}}</li>
-      <li>Linkedin: <a href="{{woman.linkedin}}"></a></li>
-      <li><img src="{{woman.picture_url}}"></img></li>
-
-    </ul>
+    </div>
   </div>
+  <div class="limiter" style="margin-top: 2%;">
 
-  <!-- build:js assets/scripts/vendor.js -->
-  <script src="assets/scripts/vendor.js"></script>
-  <!-- endbuild -->
-  <!-- build:js assets/scripts/bundle.js -->
-  <script src="assets/scripts/bundle.js"></script>
-  <!-- endbuild -->
+
+    <form class="form lineBlue" >
+      <h3 class="center">REGISTER A NEW WOMAN</h3>
+      <fieldset class="form__fieldset">
+        <div class="form__group">
+          <label class="form__label" for="form-name">Input name</label>
+          <input type="text" ng-model="name" class="form__control form__control--medium" id="form-name" name="form-name"/>
+        </div>
+
+        <div class="form__group">
+          <label class="form__label" for="form-email">Input email</label>
+          <input type="email" ng-model="email" class="form__control form__control--medium" id="form-email" name="form-email"/>
+
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="form-topic">Input topic</label>
+          <input type="text" ng-model="topic" class="form__control form__control--medium" id="form-topic" name="form-topic"/>
+
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="form-linkedin">Input linkedin</label>
+          <input type="text" ng-model="linkedin" class="form__control form__control--medium" id="form-linkedin" name="form-linkedin"/>
+
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="form-pictureUrl">Input picture_url</label>
+          <input type="text" ng-model="pictureUrl" class="form__control form__control--medium" id="form-pictureUrl" name="form-pictureUrl"/>
+
+        </div>
+
+        <div class="center">
+          <button class="button button--secondary-bounded" ng-click="sendData()" type="submit"><span>Send</span></button>
+        </div>
+      </fieldset>
+
+
+    </form>
+
+
+
+    <div style="padding: 1%;">
+      <div style="text-align: center;">
+
+       <label class="form__option form__option--inline form__option--custom-radio" >
+        <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="true" name="form-radio1" id="form-radio-1" value="true"  />  <span class="form__option__text">Activate</span>
+        <span class="form__option__ui"></span>
+      </label>
+
+      <label class="form__option form__option--inline form__option--custom-radio">
+        <input type="radio" ng-model="public" ng-change="changeURL()" ng-value="false"  ng-checked="true" name="form-radio1" id="form-radio-1" value="false" /> <span class="form__option__text">Unknown</span>
+        <span class="form__option__ui"></span>
+      </label>
+    </div>
+
+
+    <div ng-repeat="woman in datas.data" style="clear: both;">
+      <div id="circle" style="float: left; margin-top: 1%;">
+        <img  src="{{woman.picture_url}}" style=" margin: 1em 0;border-radius: 100px; max-width: 96px; height: auto;display: inline-block;">
+      </div> 
+      <div style="float: left; padding: 1%;">
+
+        <h2 class="title">{{woman.name}} </h2>
+        <div class="contact">
+         
+            <span class="micon icon--email">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+                <path d="M32 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM16 16h32c0.571 0 1.125 0.123 1.634 0.354l-17.634 20.573-17.634-20.573c0.509-0.231 1.063-0.354 1.634-0.354zM12 44v-24c0-0.084 0.004-0.167 0.009-0.25l11.729 13.684-11.6 11.6c-0.090-0.334-0.138-0.68-0.138-1.034zM48 48h-32c-0.353 0-0.7-0.048-1.034-0.138l11.382-11.382 5.651 6.594 5.651-6.593 11.382 11.383c-0.334 0.090-0.68 0.138-1.034 0.138zM52 44c0 0.353-0.048 0.7-0.138 1.034l-11.6-11.6 11.729-13.684c0.005 0.083 0.009 0.166 0.009 0.25v24z" fill="#000000"></path>
+              </svg>
+            </span> 
+            <span class="username">{{woman.email}}</span> 
+            <br>       
+            <a href="{{woman.linkedin}}">{{woman.linkedin}}</a>
+            <br>
+           <span class="username">{{woman.topic}}</span>
+         </div> 
+       <button class="button button--warning-bounded" type="button" value="{{woman.id}}" ng-click="deleteWomen($event)">Delete</button>
+     </div>
+   </div>
+ </div>
+
+
+
+
+ <!-- build:js assets/scripts/vendor.js -->
+ <script src="assets/scripts/vendor.js"></script>
+ <!-- endbuild -->
+ <!-- build:js assets/scripts/bundle.js -->
+ <script src="assets/scripts/bundle.js"></script>
+ <!-- endbuild -->
 </body>
 </html>
